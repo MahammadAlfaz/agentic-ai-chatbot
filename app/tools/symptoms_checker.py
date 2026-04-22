@@ -2,13 +2,14 @@
 from langchain_core.tools import tool
 
 from app.llm.llm import get_llm
+from app.tools.schemas import SymptomsOutput
 
 
 @tool
-def symptom_checker(symptoms: str) -> str:
+def symptom_checker(symptoms: str) -> dict:
 
     """ Analyze patient symptoms and suggest possible conditions."""
-    llm=get_llm()
+    llm=get_llm().with_structured_output(SymptomsOutput)
     prompt = f"""
     You are a medical assistant.
 
@@ -22,4 +23,4 @@ def symptom_checker(symptoms: str) -> str:
     Keep the answer short and structured.
     """
     result=llm.invoke(prompt)
-    return result.content
+    return result.model_dump()

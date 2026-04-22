@@ -16,7 +16,7 @@ class AgentState(TypedDict):
 def detect_intention(state: AgentState):
     user_input = state["input"].lower()
     if any(word in user_input for word in [
-        "what", "define", "explain", "tell me", "about", "causes", "symptoms"
+        "what"
     ]):
         return {"intent": "rag"}
 
