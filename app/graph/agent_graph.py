@@ -14,17 +14,25 @@ class AgentState(TypedDict):
 
 
 def detect_intention(state: AgentState):
-    input = state["input"].lower()
+    user_input = state["input"].lower()
+    if any(word in user_input for word in [
+        "what", "define", "explain", "tell me", "about", "causes", "symptoms"
+    ]):
+        return {"intent": "rag"}
 
-    if "fever" in input or "symptom" in input:
-        intent = "symptom"
-    elif "drug" in input or "medicine" in input:
-        intent = "medicine"
-    elif "what" in input or "define" in input:
-        intent = "rag"
-    else:
-        intent = "general"
-    return {"intent": intent}
+    
+    elif any(word in user_input for word in [
+        "i have", "fever", "cough", "pain", "headache"
+    ]):
+        return {"intent": "symptom"}
+
+
+    elif any(word in user_input for word in [
+        "medicine", "drug", "tablet", "paracetamol", "ibuprofen"
+    ]):
+        return {"intent": "medicine"}
+
+    return {"intent": "general"}
 
 
 def router(state: AgentState):

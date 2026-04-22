@@ -1,25 +1,23 @@
 
-
-
-from langchain.tools import tool
-
+from langchain_core.tools import tool
+from app.llm.llm import get_llm
 
 @tool
 def medicine_info(medicine_name: str) -> str:
+ 
+    """Provide information about a medicine."""
+    llm=get_llm()
+    prompt = f"""
+    You are a medical assistant.
+
+    Provide details about the medicine: {medicine_name}
+
+    Include:
+    - Use
+    - Dosage (general guidance)
+    - Side effects
+
+    Keep it simple and safe.
     """
-    Provides basic information about medicines.
-    """
-
-    med = medicine_name.lower()
-
-    if "paracetamol" in med:
-        return "Paracetamol is used to reduce fever and relieve mild pain."
-
-    elif "ibuprofen" in med:
-        return "Ibuprofen is a pain reliever and anti-inflammatory drug."
-
-    elif "amoxicillin" in med:
-        return "Amoxicillin is an antibiotic used for bacterial infections."
-
-    else:
-        return "Medicine information not found. Consult a pharmacist."
+    response=llm.invoke(prompt)
+    return response.content

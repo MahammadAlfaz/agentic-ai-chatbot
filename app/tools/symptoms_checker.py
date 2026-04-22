@@ -1,23 +1,25 @@
 
-from langchain.tools import tool
+from langchain_core.tools import tool
+
+from app.llm.llm import get_llm
 
 
 @tool
 def symptom_checker(symptoms: str) -> str:
+
+    """ Analyze patient symptoms and suggest possible conditions."""
+    llm=get_llm()
+    prompt = f"""
+    You are a medical assistant.
+
+    A patient reports the following symptoms:
+    {symptoms}
+
+    1. Suggest possible conditions
+    2. Mention severity (low/medium/high)
+    3. Suggest next steps (rest / consult doctor)
+
+    Keep the answer short and structured.
     """
-    Takes symptoms as input and returns possible conditions.
-    """
-
-    symptoms = symptoms.lower()
-
-    if "fever" in symptoms and "cough" in symptoms:
-        return "Possible conditions: Flu, COVID-19"
-
-    elif "headache" in symptoms and "nausea" in symptoms:
-        return "Possible conditions: Migraine"
-
-    elif "chest pain" in symptoms:
-        return "Possible condition: Heart-related issue (consult doctor immediately)"
-
-    else:
-        return "Condition unclear. Please consult a doctor."
+    result=llm.invoke(prompt)
+    return result.content
