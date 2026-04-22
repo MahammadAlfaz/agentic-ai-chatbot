@@ -1,26 +1,22 @@
 [
   {
     "role": "user",
-    "content": "hi i am alfaz i am 18 year old and sick "
+    "content": "who am i "
   },
   {
     "role": "Assistant",
-    "content": "Hi Alfaz, I'm sorry to hear you're not feeling well.\n\nTo help me understand what's going on, could you tell me a bit more about your symptoms? For example, what kind of symptoms are you experiencing (like a fever, cough, sore throat, stomach ache, etc.), how long have they been going on, and how severe are they?"
+    "content": "As a medical assistant, I am an AI and do not have access to your personal identity or information. I don't know who you are."
   },
   {
     "role": "user",
-    "content": "who am i"
-  },
-  {
-    "role": "Assistant",
-    "content": "You are Alfaz, and you are 18 years old."
+    "content": "hi i am alfaz ,18 year old looking for a better doc "
   },
   {
     "role": "user",
-    "content": "how old i am "
+    "content": "who am i "
   },
   {
     "role": "Assistant",
-    "content": "You are 18 years old."
+    "content": "You mentioned earlier that you are Alfaz, an 18-year-old looking for a better doctor.\n\nAs an AI medical assistant, I don't have access to your personal identity or information beyond what you choose to share with me during our conversation."
   }
 ]
