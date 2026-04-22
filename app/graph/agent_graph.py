@@ -1,6 +1,7 @@
 from typing import TypedDict
 from langgraph.graph import END, START, StateGraph
 from app.llm.llm import get_llm
+from app.memory.memory import add_chat, get_history
 from app.rag.retriever import get_retriever
 from app.tools.tools import get_tools
 
@@ -54,8 +55,24 @@ def tool_node(state: AgentState):
 def llm_node(state: AgentState):
     llm = get_llm()
     user_input = state["input"]
+    add_chat("user",user_input)
+    history=get_history()
+    message=""
 
-    result = llm.invoke(user_input)
+    for msg in history:
+        message+=f"{msg['role']} : {msg['content']} \n"
+    prompt = f"""
+    You are a medical assistant having a conversation.
+
+    Conversation history:
+    {message}
+
+    Respond appropriately to the latest user query.
+    """
+
+    result = llm.invoke(prompt)
+    # print("\n",message)
+    add_chat("Assistant",result.content)
     return {"output": result.content}
 
 
@@ -82,6 +99,7 @@ def rag_node(state: AgentState):
         {user_input}
         """
     result = llm.invoke(prompt)
+
     return {"output": result.content, "context": context}
 
 

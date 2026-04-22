@@ -5,6 +5,10 @@ workflow=build_agent_graph()
 
 # print(workflow.invoke({'input':"I have fever and cough"}),'\n')
 
-# print(workflow.invoke({'input':'tell me a joke '}),'\n')
 
-print(workflow.invoke({'input':'what is heart attack  '}),'\n')
+##LLM
+print(workflow.invoke({'input': 'hi i am new patient alfaz i am 21 years old '}),'\n')
+print(workflow.invoke({'input': 'who am i '}),'\n')
+print(workflow.invoke({'input': 'how old am i  '}),'\n')
+
+# print(workflow.invoke({'input':'what is heart attack  '}),'\n')
