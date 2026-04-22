@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": "hi i am alfaz i am 18 year old and sick "
+  },
+  {
+    "role": "Assistant",
+    "content": "Hi Alfaz, I'm sorry to hear you're not feeling well.\n\nTo help me understand what's going on, could you tell me a bit more about your symptoms? For example, what kind of symptoms are you experiencing (like a fever, cough, sore throat, stomach ache, etc.), how long have they been going on, and how severe are they?"
+  },
+  {
+    "role": "user",
+    "content": "who am i"
+  },
+  {
+    "role": "Assistant",
+    "content": "You are Alfaz, and you are 18 years old."
+  },
+  {
+    "role": "user",
+    "content": "how old i am "
+  },
+  {
+    "role": "Assistant",
+    "content": "You are 18 years old."
+  }
+]
