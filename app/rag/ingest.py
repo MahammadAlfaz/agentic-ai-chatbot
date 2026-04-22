@@ -22,7 +22,8 @@ def ingest_documents():
         docs,
         embedding=GoogleGenerativeAIEmbeddings(model="gemini-embedding-001"),
         persist_directory="chroma_db",
-        collection_name="chat_chroma_db",
+        collection_name="chat_chroma_db"
     )
   
     print(" Documents ingested successfully!")
+ingest_documents()

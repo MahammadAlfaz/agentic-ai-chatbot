@@ -1,11 +1,13 @@
-Fever is a temporary increase in body temperature, often due to an infection.
+Fever is a medical condition where the body temperature rises above the normal range, usually due to infection. Common causes of fever include viral infections, bacterial infections, and inflammatory conditions. Symptoms of fever include sweating, chills, headache, muscle aches, and weakness.
 
-Common symptoms of flu include fever, cough, sore throat, and fatigue.
+Flu, also known as influenza, is a viral infection that affects the respiratory system. Common flu symptoms include fever, cough, sore throat, runny nose, body aches, fatigue, and headache. Flu spreads easily from person to person.
 
-Paracetamol is commonly used to reduce fever and relieve mild pain.
+COVID-19 is a viral disease caused by the SARS-CoV-2 coronavirus. COVID-19 symptoms include fever, dry cough, tiredness, loss of taste or smell, and difficulty breathing. Severe cases may require medical attention and hospitalization.
 
-Ibuprofen is used for pain relief, inflammation, and fever reduction.
+Chest pain is a symptom that can be related to heart problems, lung issues, or muscle strain. Serious causes of chest pain include heart attack, angina, or pulmonary conditions. Chest pain should never be ignored and may require immediate medical evaluation.
 
-COVID-19 symptoms include fever, cough, and difficulty breathing.
+A heart attack, also known as myocardial infarction, occurs when blood flow to a part of the heart is blocked, usually by a blood clot. This can damage or destroy heart muscle. Symptoms of a heart attack include chest pain, shortness of breath, sweating, nausea, dizziness, and discomfort in the arms or jaw. A heart attack is a medical emergency and requires immediate treatment.
 
-Chest pain may indicate heart problems and requires immediate medical attention.
+Paracetamol, also known as acetaminophen, is a medicine used to reduce fever and relieve mild to moderate pain. It is commonly used for headaches, body aches, and cold or flu symptoms. It should be taken in recommended doses.
+
+Ibuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used to reduce pain, inflammation, and fever. It is commonly used for muscle pain, arthritis, injuries, and swelling. Long-term use should be monitored due to possible side effects.
