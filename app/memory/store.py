@@ -1,8 +1,6 @@
 import os 
 import json
 
-
-
 MEMORY_FILE="data/chat_memory.json"
 
 

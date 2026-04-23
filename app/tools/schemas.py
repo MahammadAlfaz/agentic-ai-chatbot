@@ -3,8 +3,9 @@ from typing import List
 from openai import BaseModel
 
 
+
 class SymptomsOutput(BaseModel):
-    condition:List[str]
+    conditions:List[str] 
     severity:str
     recommendation:str
 
