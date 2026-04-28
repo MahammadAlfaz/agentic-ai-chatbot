@@ -1,8 +1,10 @@
 import asyncio
+import json
 
 from app.graph.state import AgentState
 from app.llm.llm import get_llm
-from app.mcp.client import get_mcp_clients
+from app.mcp_client.client import get_mcp_clients
+
 
 
 async def _mcp_node_async(state:AgentState):
@@ -31,6 +33,13 @@ async def _mcp_node_async(state:AgentState):
         tool_result= await tool.ainvoke(tool_args)
 
         return {'output':tool_result}
-    return {"output":result.content}
+    if isinstance(tool_result, list):
+        content = tool_result[0].get("text", str(tool_result))
+    elif isinstance(tool_result, dict):
+        content = tool_result
+    else:
+        content = str(tool_result)
+
+    return {"output":json.loads(content)}
 def mcp_node(state: AgentState):       
     return asyncio.run(_mcp_node_async(state))

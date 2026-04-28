@@ -7,9 +7,7 @@ from app.nodes.mcp_node import mcp_node
 from app.nodes.rag_node import rag_node
 from app.nodes.tool_node import tool_node
 
-
 llm = get_llm()
-
 
 def router(state: AgentState):
     intent = state["intent"]
