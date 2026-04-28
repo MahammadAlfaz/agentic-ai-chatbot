@@ -31,5 +31,5 @@ def stream_response(request:QuerryRequest):
         "output": "",
         "context": ""
     }
-    state.update(detect_intent(state)
+    state.update(detect_intent(state))
     return StreamingResponse(stream_node(state),media_type="text/event-stream")

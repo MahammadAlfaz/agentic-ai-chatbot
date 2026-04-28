@@ -21,3 +21,7 @@ grandalf
 beautifulsoup4
 langchain-chroma
 langsmith
+fastapi-mcp
+httpx
+mcp
+langchain-mcp-adapters
