@@ -4,7 +4,7 @@ from app.llm.llm import get_llm
 from app.memory.memory import add_chat, get_history
 
 
-def llm_node(state: AgentState):
+def stream_node(state: AgentState):
     llm=get_llm()
     user_input = state["input"]
     session_id=state.get("session_id","default")
@@ -24,9 +24,16 @@ def llm_node(state: AgentState):
 
     Respond appropriately to the latest user query.
     """
+ 
 
-    result = llm.invoke(prompt)
+    
+    full_response=""
+    for chunks in llm.stream(prompt):
+        token=chunks.content
+        if token :
+            full_response+=token
+            yield token
     # print("\n",message)
-    add_chat(session_id,"Assistant",result.content)
-    return {"output": result.content}
+    add_chat(session_id,"Assistant",full_response)
+    return {"output": full_response}
 

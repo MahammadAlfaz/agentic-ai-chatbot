@@ -1,11 +1,12 @@
 from app.graph.state import AgentState
 from app.llm.llm import get_llm
 
-llm = get_llm()
+
 
 
 def detect_intent(state:AgentState):
     user_input = state["input"]
+    llm = get_llm()
 
     prompt = f"""
     You are a router for a medical assistant.

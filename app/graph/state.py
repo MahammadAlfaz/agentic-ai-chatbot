@@ -7,3 +7,4 @@ class AgentState(TypedDict):
     intent: str
     output: str
     context: str
+    session_id: str

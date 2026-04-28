@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "what is fever"
+  },
+  {
+    "role": "Assistant",
+    "content": "Fever is when your body temperature rises above its normal range. It's usually a sign that your body is fighting off an infection or illness. A typical normal body temperature is around 98.6\u00b0F (37\u00b0C), but it can vary slightly from person to person."
+  }
+]
