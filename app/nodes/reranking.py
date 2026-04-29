@@ -29,8 +29,11 @@ def reranking_node(state:RagState)->RagState:
             score=float(result.content.strip())
             score=max(0.0,min(1.0,score))
         except ValueError:
-            print(f"Doc score :{score} | {doc.page_content[:80]}...")
-    scored_docs.append((score,doc))
+            score=0.0
+
+        print(f"Doc score :{score} | {doc.page_content[:80]}...")
+        scored_docs.append((score,doc))
+    scored_docs.sort(key=lambda x: x[0], reverse=True)
     top_docs=[doc for score,doc in scored_docs[:3]]
 
     print(f"Top {len(top_docs)} docs after reranking")

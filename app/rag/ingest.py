@@ -1,5 +1,5 @@
 
-
+import os 
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader
@@ -12,16 +12,18 @@ def ingest_documents():
     documents= loader.load()
     splitter=RecursiveCharacterTextSplitter(
         separators=["\n\n","\n"," ",""],
-        chunk_size=1000,
-        chunk_overlap=200
+        chunk_size=500,
+        chunk_overlap=100
     )
 
     docs=splitter.split_documents(documents)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    CHROMA_PATH = os.path.join(BASE_DIR, "chroma_db")
 
     vector_store=Chroma.from_documents(
         docs,
         embedding=GoogleGenerativeAIEmbeddings(model="gemini-embedding-001"),
-        persist_directory="chroma_db",
+        persist_directory=CHROMA_PATH,
         collection_name="chat_chroma_db"
     )
   

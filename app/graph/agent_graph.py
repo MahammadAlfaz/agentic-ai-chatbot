@@ -5,7 +5,6 @@ from app.nodes.llm_node import llm_node
 from app.nodes.mcp_node import mcp_node
 from app.nodes.rag_node import rag_node
 from app.nodes.tool_node import tool_node
-from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.checkpoint.memory import MemorySaver
 
 checkpointer = MemorySaver()

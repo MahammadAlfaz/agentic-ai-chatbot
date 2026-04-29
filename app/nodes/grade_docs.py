@@ -31,7 +31,7 @@ def grade_docs_node(state:RagState)->RagState:
 
         if "relevant" in grade and 'irrelevant' not in grade:
             relevant_docs.append(doc)
-            print(f"Relevant:{doc.pae_content[:80]}...")
+            print(f"Relevant:{doc.page_content[:80]}...")
         else:
             print(f"Irrelevant: {doc.page_content[:80]}...")
     print(f"Relevant docs:{len(relevant_docs)}/{len(docs)}")

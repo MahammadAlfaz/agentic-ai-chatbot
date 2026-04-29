@@ -2,8 +2,26 @@ from app.graph.state import AgentState
 from app.llm.llm import get_llm
 from app.rag.retriever import get_retriever
 
-
+USE_ADVANCED_RAG=True
 def rag_node(state: AgentState):
+    if USE_ADVANCED_RAG:
+        from app.graph.rag_graph import rag_workflow
+        question=state['input']
+        result=rag_workflow.invoke({
+            'question':question,
+            'transformed_querry':"",
+            'should_retrieve':True,
+            "retrieved_docs":[],
+            "graded_docs":[],
+            'web_search_used':False,
+            "generated_answer":"",
+            "hallucination_score":0.0,
+            "attempts":0,
+            "final_answer":""
+        })
+        return{
+            "output":result.get("generated_answer","I could not find relevant information.")
+        }
     llm = get_llm()
     retriever = get_retriever()
 

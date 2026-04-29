@@ -38,9 +38,9 @@ async def _mcp_node_async(state:AgentState):
         else:
          content = str(tool_result)
 
-        return {'output':tool_result}
+        return {'output':content}
     
 
-    return {"output":content}
+    return {"output":result.content}
 def mcp_node(state: AgentState):       
     return asyncio.run(_mcp_node_async(state))
