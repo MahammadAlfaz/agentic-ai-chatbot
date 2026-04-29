@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "tell me a joke "
+  },
+  {
+    "role": "Assistant",
+    "content": "Sure, I can tell you a joke!\n\nWhy did the nurse bring a red pen to work?\n\n...In case she needed to draw blood!"
+  }
+]

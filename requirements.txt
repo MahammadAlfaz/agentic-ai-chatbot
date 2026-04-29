@@ -25,3 +25,4 @@ fastapi-mcp
 httpx
 mcp
 langchain-mcp-adapters
+langgraph-checkpoint-sqlite

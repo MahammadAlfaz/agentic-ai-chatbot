@@ -31,15 +31,16 @@ async def _mcp_node_async(state:AgentState):
 
         tool=next(t for t in tools if t.name==tool_name)
         tool_result= await tool.ainvoke(tool_args)
+        if isinstance(tool_result, list):
+         content = tool_result[0].get("text", str(tool_result))
+        elif isinstance(tool_result, dict):
+         content = tool_result
+        else:
+         content = str(tool_result)
 
         return {'output':tool_result}
-    if isinstance(tool_result, list):
-        content = tool_result[0].get("text", str(tool_result))
-    elif isinstance(tool_result, dict):
-        content = tool_result
-    else:
-        content = str(tool_result)
+    
 
-    return {"output":json.loads(content)}
+    return {"output":content}
 def mcp_node(state: AgentState):       
     return asyncio.run(_mcp_node_async(state))

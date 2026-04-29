@@ -1,13 +1,14 @@
 from langgraph.graph import END, START, StateGraph
 from app.graph.state import AgentState
-from app.llm.llm import get_llm
 from app.nodes.intent_node import detect_intent
 from app.nodes.llm_node import llm_node
 from app.nodes.mcp_node import mcp_node
 from app.nodes.rag_node import rag_node
 from app.nodes.tool_node import tool_node
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.checkpoint.memory import MemorySaver
 
-llm = get_llm()
+checkpointer = MemorySaver()
 
 def router(state: AgentState):
     intent = state["intent"]
@@ -40,5 +41,6 @@ def build_agent_graph():
     graph.add_edge("mcp_node",END)
     graph.add_edge("tool_node", END)
     graph.add_edge("rag_node", END)
-
-    return graph.compile()
+   
+    return graph.compile(checkpointer=checkpointer,interrupt_before=['mcp_node'])
+workflow = build_agent_graph()
