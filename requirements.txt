@@ -26,3 +26,5 @@ httpx
 mcp
 langchain-mcp-adapters
 langgraph-checkpoint-sqlite
+tavily-python
+google-search-results
