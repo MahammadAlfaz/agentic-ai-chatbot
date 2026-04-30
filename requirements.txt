@@ -28,3 +28,4 @@ langchain-mcp-adapters
 langgraph-checkpoint-sqlite
 tavily-python
 google-search-results
+langchain-google-community[drive]

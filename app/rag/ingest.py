@@ -6,10 +6,19 @@ from langchain_community.document_loaders import TextLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from app.rag.google_docs_loader import load_from_google_doc
+
 load_dotenv()
-def ingest_documents():
-    loader=TextLoader("data/medical_docs.txt")
-    documents= loader.load()
+def ingest_documents(folder_id:str=None,source:str ="local"):
+    if  source.lower().strip() == "google_docs":
+        if not folder_id:
+            raise ValueError("folder id is required ")
+        print(f"Loading from Google Drive folder: {folder_id}")
+        documents=load_from_google_doc(folder_id)
+    else:
+        print("Loading from local file...")
+        loader=TextLoader("data/medical_docs.txt")
+        documents= loader.load()
     splitter=RecursiveCharacterTextSplitter(
         separators=["\n\n","\n"," ",""],
         chunk_size=500,
@@ -29,4 +38,4 @@ def ingest_documents():
   
     print(" Documents ingested successfully!")
 if __name__=="__main__":
-    ingest_documents()
+    ingest_documents(folder_id="1pyAO-jmiHiJahq_2VFspJdCTmCcwJJQQ",source="google_docs")
